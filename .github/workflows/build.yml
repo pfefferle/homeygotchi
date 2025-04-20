@@ -1,0 +1,29 @@
+name: Build and Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install PlatformIO
+        uses: platformio/platformio-core-installer@v1.0.3
+
+      - name: Build with PlatformIO
+        run: |
+          pio run
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: .pio/build/m5stack-atoms3/firmware.bin
+          asset_name: palnagotchi.bin
+          asset_content_type: application/octet-stream
