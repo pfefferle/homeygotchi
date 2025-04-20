@@ -1,4 +1,4 @@
-#include "M5Cardputer.h"
+#include "Arduino.h"
 #include "M5Unified.h"
 #include "ui.h"
 
@@ -12,8 +12,6 @@ void initM5() {
   auto cfg = M5.config();
   M5.begin();
   M5.Display.begin();
-  M5Cardputer.begin(cfg);
-  M5Cardputer.Keyboard.begin();
 }
 
 void setup() {
@@ -36,7 +34,7 @@ void wakeUp() {
 
 void advertise(uint8_t channel) {
   uint32_t elapsed = millis() - last_mood_switch;
-  if (elapsed > 50000) {
+  if (elapsed > 5000) {
     setMood(random(2, 21));
     last_mood_switch = millis();
   }
@@ -57,7 +55,6 @@ void advertise(uint8_t channel) {
 
 void loop() {
   M5.update();
-  M5Cardputer.update();
 
   if (state == STATE_HALT) {
     return;
