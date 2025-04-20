@@ -1,6 +1,6 @@
 # Palnagotchi for M5 Atom S3(R) Dev Kit
 
-![Palnagotchi](https://github.com/viniciusbo/m5-palnagotchi/blob/master/palnagotchi.jpg?raw=true)
+![Palnagotchi](palnagotchi.jpg?raw=true)
 
 A friendly unit for those lonely Pwnagotchis out there. It's written to run on the M5 Atom S3(R) Dev Kit.
 
@@ -14,7 +14,7 @@ The Pwngrid works by sending Wifi beacon frames with a JSON serialized payload i
 
 - Run the app to start advertisement.
 - Bottom bar shows total friends made in this run, all time total friends between parenthesis (needs EEPROM) and signal strengh indicator of closest friend.
-- Nearby pwnagotchis show all nearby units and its signal strength.
+- Nearby pwnagotchis shows all nearby units and its signal strength.
 - Palnagotchi gets a random mood every minute or so.
 
 ## Why?
