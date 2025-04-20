@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install PlatformIO
-        uses: platformio/platformio-core-installer@v1.0.3
+        uses: platformio/action-install-platformio@v1.0.0
 
       - name: Build with PlatformIO
         run: |
