@@ -30,10 +30,10 @@ const String palnagotchi_moods_desc[] = {
     "Zzzz...",             // 0 - sleeping
     "...",                 // 1 - awakening
     "Let's MAKE FRIENDS!", // 2 - awake
-    "WANTED: FRIENDS",     // 3 - observing (neutral) right
+    "Anybody here?",       // 3 - observing (neutral) right
     "WANTED: FRIENDS",     // 4 - observig (neutral) left
-    "More friends?",       // 5 - observing (happy) right
-    "More friends?",       // 6 - observing (happy) left
+    "Looking around...",   // 5 - observing (happy) right
+    "Hello, friend?",      // 6 - observing (happy) left
     "YEAH! pwnagotchis!",  // 7 - intense
     "Coolest pal around",  // 8 - cool
     "More friends!!!",     // 9 - happy
