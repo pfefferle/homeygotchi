@@ -10,6 +10,6 @@
 extern BTHome bthome;
 
 void initHome();
-void updateHome();
+void updateHome(bool force = false);
 
 #endif // HOME_H
