@@ -5,6 +5,7 @@
 #include "BTHome.h"
 #include "pwngrid.h"
 #include "mood.h"
+#include "config.h"
 
 extern BTHome bthome;
 

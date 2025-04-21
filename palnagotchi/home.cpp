@@ -3,20 +3,14 @@
 BTHome bthome;
 
 void initHome() {
-    // Initialize BTHome with device name "Palnagotchi"
-    String deviceName = "Palnagotchi";
+    // Initialize BTHome with device name.
+    String deviceName = homeygotchi_name;
     bthome.begin(deviceName, false, "", false);
 }
 
 void updateHome() {
     // Reset previous measurements
     bthome.resetMeasurement();
-
-    // Add mood as a state measurement
-    //bthome.addMeasurement_state(STATE_GENERIC_BOOLEAN, getCurrentMoodId());
-
-    // Add battery level (placeholder)
-    bthome.addMeasurement(ID_BATTERY, (uint64_t)100);
 
     // Add current face as a text measurement
     String face = getCurrentMoodFace();
