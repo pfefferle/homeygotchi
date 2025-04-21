@@ -1,6 +1,9 @@
-#include "Arduino.h"
-#include "M5Unified.h"
+#include <M5AtomS3.h>
+
+#include <Arduino.h>
+#include <M5Unified.h>
 #include "ui.h"
+#include "home.h"
 
 #define STATE_INIT 0
 #define STATE_WAKE 1
@@ -18,6 +21,7 @@ void setup() {
   initM5();
   initPwngrid();
   initUi();
+  initHome();
   state = STATE_INIT;
 }
 
@@ -28,6 +32,7 @@ void wakeUp() {
   for (uint8_t i = 0; i < 3; i++) {
     setMood(i);
     updateUi();
+    updateHome();
     delay(1250);
   }
 }
@@ -74,4 +79,5 @@ void loop() {
   }
 
   updateUi(true);
+  updateHome();
 }

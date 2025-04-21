@@ -1,9 +1,12 @@
-#include "Arduino.h"
-#include "ArduinoJson.h"
-#include "EEPROM.h"
-#include "M5Unified.h"
-#include "esp_wifi.h"
-#include "esp_wifi_types.h"
+#ifndef PWNGGRID_H
+#define PWNGGRID_H
+
+#include <Arduino.h>
+#include <ArduinoJson.h>
+#include <EEPROM.h>
+#include <M5Unified.h>
+#include <esp_wifi.h>
+#include <esp_wifi_types.h>
 // #include "freertos/FreeRTOS.h"
 
 typedef struct {
@@ -31,3 +34,5 @@ uint8_t getPwngridTotalPeers();
 String getPwngridLastFriendName();
 signed int getPwngridClosestRssi();
 void checkPwngridGoneFriends();
+
+#endif // PWNGGRID_H
