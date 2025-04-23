@@ -1,5 +1,5 @@
-#ifndef HOME_H
-#define HOME_H
+#ifndef PALNAGOTCHI_HOME_H
+#define PALNAGOTCHI_HOME_H
 
 #include <Arduino.h>
 #include "BTHome.h"
@@ -7,9 +7,11 @@
 #include "mood.h"
 #include "config.h"
 
+// External variables
 extern BTHome bthome;
 
+// Function declarations
 void initHome();
-void updateHome(bool force = false);
+void sendMoodToHome();
 
-#endif // HOME_H
+#endif // PALNAGOTCHI_HOME_H
