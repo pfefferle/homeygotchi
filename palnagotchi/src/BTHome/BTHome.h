@@ -1,6 +1,4 @@
-#include <Arduino.h>
-#include <NimBLEDevice.h>
-#include <mbedtls/ccm.h>
+#include "mbedtls/ccm.h"
 #if defined(ESP32)
 #include "esp_random.h"
 #endif

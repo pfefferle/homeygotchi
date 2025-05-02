@@ -1,3 +1,5 @@
+#include "Arduino.h"
+#include "NimBLEDevice.h"
 #include "BTHome.h"
 
 static BLEAdvertising *pAdvertising;
