@@ -84,25 +84,25 @@ void advertise(uint8_t channel) {
 void loop() {
     M5.update();
 
-    if (getCurrentState() == STATE_HALT) {
-        return;
-    }
-
-    if (getCurrentState() == STATE_INIT) {
-        wakeUp();
-        setState(STATE_WAKE);
-    }
-
-    if (getCurrentState() == STATE_WAKE) {
-        checkPwngridGoneFriends();
-        advertise(current_channel++);
-        if (current_channel == 15) {
-            current_channel = 1;
-        }
-    }
-
-    if (getCurrentState() == STATE_PWNAGOTCHI_FOUND) {
-        sniffForDeauth();
+    switch (getCurrentState()) {
+        case STATE_HALT:
+            return;
+        case STATE_INIT:
+            wakeUp();
+            setState(STATE_WAKE);
+            break;
+        case STATE_WAKE:
+            checkPwngridGoneFriends();
+            advertise(current_channel++);
+            if (current_channel == 15) {
+                current_channel = 1;
+            }
+            break;
+        case STATE_PWNAGOTCHI_FOUND:
+            sniffForDeauth();
+            break;
+        case STATE_PWNAGOTCHI_GONE:
+            break;
     }
 
     updateUi(true);
