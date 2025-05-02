@@ -2,7 +2,7 @@
 #define PALNAGOTCHI_HOME_H
 
 #include <Arduino.h>
-#include "BTHome.h"
+#include "src/BTHome/BTHome.h"
 #include "pwngrid.h"
 #include "mood.h"
 #include "config.h"
