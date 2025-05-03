@@ -8,6 +8,7 @@
 #include <esp_wifi.h>
 #include <esp_wifi_types.h>
 #include "state.h"
+#include "mood.h"
 // #include "freertos/FreeRTOS.h"
 
 // Peer information structure
@@ -31,6 +32,7 @@ typedef struct {
 // Function declarations
 void pwnSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type);
 void initPwngrid();
+void pwngridLoop();
 void pwngridAddPeer(JsonDocument& json, int rssi);
 esp_err_t pwngridAdvertise(uint8_t channel, String face);
 pwngrid_peer* getPwngridPeers();

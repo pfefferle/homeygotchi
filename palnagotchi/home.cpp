@@ -10,12 +10,12 @@ void initHome() {
 
 void sendMoodToHome() {
     // Add current face as a text measurement.
-    String face = getCurrentMoodFace();
+    String face = Mood::getFace();
     uint8_t face_bytes[face.length() + 1];
     face.getBytes(face_bytes, face.length() + 1);
 
     // Add current mood as a text measurement.
-    String phrase = getCurrentMoodPhrase();
+    String phrase = Mood::getPhrase();
     uint8_t phrase_bytes[phrase.length() + 1];
     phrase.getBytes(phrase_bytes, phrase.length() + 1);
 

@@ -43,10 +43,10 @@ void updateUi(bool show_toolbars) {
         menu_open = !menu_open;
     }
 
-    uint8_t mood_id = getCurrentMoodId();
-    String mood_face = getCurrentMoodFace();
-    String mood_phrase = getCurrentMoodPhrase();
-    bool mood_broken = isCurrentMoodBroken();
+    uint8_t mood_id = Mood::getId();
+    String mood_face = Mood::getFace();
+    String mood_phrase = Mood::getPhrase();
+    bool mood_broken = Mood::isBroken();
 
     drawBottomCanvas(getPwngridRunTotalPeers(), getPwngridTotalPeers(),
                     getPwngridLastFriendName(), getPwngridClosestRssi());

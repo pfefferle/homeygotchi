@@ -53,7 +53,7 @@ void sniffForDeauth() {
     if (current_time - last_deauth >= (timeout_seconds * 1000)) {
         Serial.println("No deauths detected for timeout period");
         is_sniffing = false;
-        setState(STATE_WAKE);
+        State::set(State::WAKE);
         return;
     }
 
@@ -63,7 +63,7 @@ void sniffForDeauth() {
         if (deauth_count >= deauth_threshold) {
             Serial.println("Deauth threshold reached");
             is_sniffing = false;
-            setState(STATE_WAKE);
+            State::set(State::WAKE);
             return;
         }
 
@@ -78,7 +78,7 @@ void sniffForDeauth() {
             if (iteration_count >= max_iterations) {
                 Serial.println("Completed all channel iterations");
                 is_sniffing = false;
-                setState(STATE_WAKE);
+                State::set(State::WAKE);
                 return;
             }
         }

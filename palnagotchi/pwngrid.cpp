@@ -18,6 +18,8 @@ typedef struct {
     WifiMgmtHdr hdr;
 } wifi_ieee80211_packet_t;
 
+uint8_t current_channel = 1;
+
 void getMAC(char *addr, uint8_t *data, uint16_t offset) {
     sprintf(addr, "%02x:%02x:%02x:%02x:%02x:%02x", data[offset + 0],
             data[offset + 1], data[offset + 2], data[offset + 3],
@@ -27,6 +29,24 @@ void getMAC(char *addr, uint8_t *data, uint16_t offset) {
 uint8_t pwngrid_friends_tot = 0;
 pwngrid_peer pwngrid_peers[255];
 String pwngrid_last_friend_name = "";
+
+void pwngridLoop() {
+    initPwngrid();
+    // run for 1 minute
+    for (int i = 0; i < 15; i++) {
+        esp_err_t result = pwngridAdvertise(current_channel, Mood::getFace());
+        if (result != ESP_OK) {
+            Serial.println("Error: unknown");
+        }
+        checkPwngridGoneFriends();
+        current_channel++;
+        if (current_channel == 15) {
+            current_channel = 1;
+        }
+        delay(300);
+    }
+    esp_wifi_set_promiscuous(false);
+}
 
 void pwnSnifferCallback(void *buf, wifi_promiscuous_pkt_type_t type) {
     wifi_promiscuous_pkt_t *snifferPacket = (wifi_promiscuous_pkt_t *)buf;
@@ -118,8 +138,6 @@ esp_err_t esp_wifi_80211_tx(wifi_interface_t ifx, const void *buffer, int len,
                             bool en_sys_seq);
 
 esp_err_t pwngridAdvertise(uint8_t channel, String face) {
-    initPwngrid();
-
     JsonDocument pal_json;
     String pal_json_str = "";
 
@@ -196,8 +214,6 @@ void pwngridAddPeer(JsonDocument &json, signed int rssi) {
             return;
         }
     }
-
-    setState(STATE_PWNAGOTCHI_FOUND);
 
     pwngrid_peers[pwngrid_friends_tot].rssi = rssi;
     pwngrid_peers[pwngrid_friends_tot].last_ping = millis();

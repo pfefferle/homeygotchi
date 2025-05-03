@@ -3,16 +3,22 @@
 
 #include <Arduino.h>
 
-// Mood definitions
-enum Mood {
-    MOOD_BROKEN = 19
-};
+const uint8_t MOOD_BROKEN = 19;
 
-// Function declarations
-void setMood(uint8_t mood, String face = "", String phrase = "", bool broken = false);
-uint8_t getCurrentMoodId();
-String getCurrentMoodFace();
-String getCurrentMoodPhrase();
-bool isCurrentMoodBroken();
+class Mood {
+public:
+    static void set(uint8_t mood, String face = "", String phrase = "", bool broken = false);
+    static uint8_t getId();
+    static String getFace();
+    static String getPhrase();
+    static bool isBroken();
+    static void change();
+
+private:
+    static uint8_t currentMood;
+    static String currentFace;
+    static String currentPhrase;
+    static bool currentBroken;
+};
 
 #endif // PALNAGOTCHI_MOOD_H
