@@ -1,19 +1,19 @@
 #include "ui.h"
 
-M5Canvas canvas_top(&M5.Display);
-M5Canvas canvas_main(&M5.Display);
-M5Canvas canvas_bot(&M5.Display);
+M5Canvas UI::canvas_top(&M5.Display);
+M5Canvas UI::canvas(&M5.Display);
+M5Canvas UI::canvas_bot(&M5.Display);
 
-int32_t display_w;
-int32_t display_h;
-int32_t canvas_h;
-int32_t canvas_center_x;
-int32_t canvas_top_h;
-int32_t canvas_bot_h;
+int32_t UI::display_w;
+int32_t UI::display_h;
+int32_t UI::canvas_h;
+int32_t UI::canvas_center_x;
+int32_t UI::canvas_top_h;
+int32_t UI::canvas_bot_h;
 
-bool menu_open = false;
+bool UI::menu_open = false;
 
-void initUi() {
+void UI::init() {
     M5.Display.setTextFont(&fonts::Font0);
     M5.Display.setTextSize(1);
     M5.Display.fillScreen(TFT_BLACK);
@@ -29,16 +29,16 @@ void initUi() {
 
     canvas_top.createSprite(display_w, canvas_top_h);
     canvas_bot.createSprite(display_w, canvas_bot_h);
-    canvas_main.createSprite(display_w, canvas_h);
+    canvas.createSprite(display_w, canvas_h);
 }
 
-bool toggleMenuBtnPressed() {
+bool UI::toggleMenuBtnPressed() {
     // Add a small delay to prevent multiple presses
     delay(100);
     return M5.BtnA.isPressed();
 }
 
-void updateUi(bool show_toolbars) {
+void UI::update(bool show_toolbars) {
     if (toggleMenuBtnPressed()) {
         menu_open = !menu_open;
     }
@@ -63,11 +63,11 @@ void updateUi(bool show_toolbars) {
         canvas_top.pushSprite(0, 0);
         canvas_bot.pushSprite(0, canvas_top_h + canvas_h);
     }
-    canvas_main.pushSprite(0, canvas_top_h);
+    canvas.pushSprite(0, canvas_top_h);
     M5.Display.endWrite();
 }
 
-String getRssiBars(signed int rssi) {
+String UI::getRssiBars(signed int rssi) {
     String rssi_bars = "";
 
     if (rssi != -1000) {
@@ -85,7 +85,7 @@ String getRssiBars(signed int rssi) {
     return rssi_bars;
 }
 
-void drawBottomCanvas(uint8_t friends_run, uint8_t friends_tot,
+void UI::drawBottomCanvas(uint8_t friends_run, uint8_t friends_tot,
                       String last_friend_name, signed int rssi) {
     canvas_bot.fillSprite(BLACK);
     canvas_bot.setTextSize(1);
@@ -107,41 +107,41 @@ void drawBottomCanvas(uint8_t friends_run, uint8_t friends_tot,
 #define ROW_SIZE 40
 #define PADDING 10
 
-void drawNearbyMenu() {
-    canvas_main.clear(BLACK);
-    canvas_main.setTextSize(2);
-    canvas_main.setTextColor(GREEN);
-    canvas_main.setColor(GREEN);
-    canvas_main.setTextDatum(top_left);
+void UI::drawNearbyMenu() {
+    canvas.clear(BLACK);
+    canvas.setTextSize(2);
+    canvas.setTextColor(GREEN);
+    canvas.setColor(GREEN);
+    canvas.setTextDatum(top_left);
 
     pwngrid_peer* pwngrid_peers = getPwngridPeers();
     uint8_t len = getPwngridRunTotalPeers();
 
     if (len == 0) {
-        canvas_main.setTextColor(TFT_DARKGRAY);
-        canvas_main.setCursor(0, PADDING);
-        canvas_main.println("No nearby Pwnagotchis. Seriously?");
+        canvas.setTextColor(TFT_DARKGRAY);
+        canvas.setCursor(0, PADDING);
+        canvas.println("No nearby Pwnagotchis. Seriously?");
     }
 
     char display_str[50] = "";
     for (uint8_t i = 0; i < len; i++) {
         int y = PADDING + (i * ROW_SIZE / 2);
-        canvas_main.drawString(pwngrid_peers[i].name, 0, y);
+        canvas.drawString(pwngrid_peers[i].name, 0, y);
     }
 }
 
-void drawMood(String face, String phrase, bool broken) {
+void UI::drawMood(String face, String phrase, bool broken) {
     if (broken == true) {
-        canvas_main.setTextColor(RED);
+        canvas.setTextColor(RED);
     } else {
-        canvas_main.setTextColor(GREEN);
+        canvas.setTextColor(GREEN);
     }
 
-    canvas_main.setTextSize(4);
-    canvas_main.setTextDatum(middle_center);
-    canvas_main.fillSprite(BLACK);
-    canvas_main.drawString(face, canvas_center_x, canvas_h / 2);
-    canvas_main.setTextDatum(bottom_center);
-    canvas_main.setTextSize(1);
-    canvas_main.drawString(phrase, canvas_center_x, canvas_h - 23);
+    canvas.setTextSize(4);
+    canvas.setTextDatum(middle_center);
+    canvas.fillSprite(BLACK);
+    canvas.drawString(face, canvas_center_x, canvas_h / 2);
+    canvas.setTextDatum(bottom_center);
+    canvas.setTextSize(1);
+    canvas.drawString(phrase, canvas_center_x, canvas_h - 23);
 }

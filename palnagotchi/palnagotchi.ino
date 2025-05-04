@@ -32,7 +32,7 @@ void initWiFi() {
 void setup() {
     initM5();
     initWiFi();
-    initUi();
+    UI::init();
     initHome();
     State::set(State::INIT);
 }
@@ -40,7 +40,7 @@ void setup() {
 void wakeUp() {
     for (uint8_t i = 0; i < 3; i++) {
         Mood::set(i);
-        updateUi();
+        UI::update();
         delay(1250);
     }
 }
@@ -68,6 +68,6 @@ void loop() {
 
     State::change();
 
-    updateUi(true);
+    UI::update(true);
     delay(1000);
 }
