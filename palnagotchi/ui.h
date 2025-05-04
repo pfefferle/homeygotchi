@@ -15,7 +15,7 @@ public:
     static void update(bool show_toolbars = false);
     static bool toggleMenuBtnPressed();
     static String getRssiBars(signed int rssi);
-
+private:
     // Static member variable declarations
     static M5Canvas canvas_top;
     static M5Canvas canvas;

@@ -14,6 +14,6 @@ bool Mood::isBroken() { return currentBroken; }
 void Mood::set(uint8_t mood, String face, String phrase, bool broken) {
     currentMood = mood;
     currentBroken = broken;
-    currentFace = (face != "") ? face : palnagotchi_moods[currentMood];
-    currentPhrase = (phrase != "") ? phrase : palnagotchi_moods_desc[currentMood];
+    currentFace = (face != "") ? face : homeygotchi_moods[currentMood];
+    currentPhrase = (phrase != "") ? phrase : homeygotchi_moods_desc[currentMood];
 }

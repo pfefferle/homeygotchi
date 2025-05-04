@@ -4,10 +4,10 @@
 #include <Arduino.h>
 
 // Device name
-const String homeygotchi_name = "HomeyGotchi";
+const String device_name = "H0M3YGotchi";
 
 // ASCII mood faces
-const String palnagotchi_moods[] = {
+const String homeygotchi_moods[] = {
     "(v_v)",  // 0 - sleeping
     "(=_=)",  // 1 - awakening
     "(O_O)",  // 2 - awake
@@ -33,7 +33,7 @@ const String palnagotchi_moods[] = {
 };
 
 // Mood descriptions
-const String palnagotchi_moods_desc[] = {
+const String homeygotchi_moods_desc[] = {
     "Zzzz...",              // 0 - sleeping
     "...",                  // 1 - awakening
     "Let's MAKE FRIENDS!",  // 2 - awake
@@ -85,8 +85,9 @@ const String pwnagotchi_moods[] = {
 
 // Content arrays
 const String pwnagotchi_spam_faces[] = {
-    "NOPWND!\n■■■■■■■■■■■■■■■■■■■■■■"
+    "NOPWND!\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■"
     "(STOP)",
+    "(.)(.)",
     "Ⴚ(●ტ●)Ⴢ",
     "ᗧ(｡◝‿◜｡)ᗤ",
     "(‿ˠ‿)",
@@ -100,23 +101,85 @@ const String pwnagotchi_spam_faces[] = {
     "(✖╭╮✖)",
     "SKIDZ!",
     "(ɹoɹɹƎ)",
-    "(H4cK)"
+    "(H4cK)",
+    "┌∩┐(◣_◢)┌∩┐",
+    "(╯°□°)╯╭╮(XoX)"
 };
 
 const String pwnagotchi_spam_names[] = {
-    "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■"
+    "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■"
     "Security Alert",
     "System Warning",
     "Critical Error",
     "Reboot Required",
     "System Breached oups",
     "Unauthorized Access",
-    "Security Compromised",
-    "Warning...Evil-M5 here",
+    "Security  Compromised.. reboot",
+    "DON'T BE A SKID",
+    "STOP DEAUTH SKIDZ!",
     "Critical Error need reboot",
     "No more Battery",
+    "Check Evil-M5Project",
     "Never gonna give you up",
-    "Never gonna let you down"
+    "Never gonna let you down",
+    "Never gonna run around",
+    "and desert you",
+    "Never gonna make you cry",
+    "Never gonna say goodbye",
+    "Never gonna tell a lie",
+    "and hurt you"
+};
+
+const char ssids[] PROGMEM = {
+    "Mom Use This One\n"
+    "Abraham Linksys\n"
+    "Benjamin FrankLAN\n"
+    "Martin Router King\n"
+    "John Wilkes Bluetooth\n"
+    "Pretty Fly for a Wi-Fi\n"
+    "Bill Wi the Science Fi\n"
+    "I Believe Wi Can Fi\n"
+    "Tell My Wi-Fi Love Her\n"
+    "No More Mister Wi-Fi\n"
+    "LAN Solo\n"
+    "The LAN Before Time\n"
+    "Silence of the LANs\n"
+    "House LANister\n"
+    "Winternet Is Coming\n"
+    "Ping's Landing\n"
+    "The Ping in the North\n"
+    "This LAN Is My LAN\n"
+    "Get Off My LAN\n"
+    "The Promised LAN\n"
+    "The LAN Down Under\n"
+    "FBI Surveillance Van 4\n"
+    "Area 51 Test Site\n"
+    "Drive-By Wi-Fi\n"
+    "Planet Express\n"
+    "Wu Tang LAN\n"
+    "Darude LANstorm\n"
+    "Never Gonna Give You Up\n"
+    "Hide Yo Kids, Hide Yo Wi-Fi\n"
+    "Loading...\n"
+    "Searching...\n"
+    "VIRUS.EXE\n"
+    "Virus-Infected Wi-Fi\n"
+    "Starbucks Wi-Fi\n"
+    "Yell 'Leeroy Jenkins' for Password\n"
+    "The Password Is 1234\n"
+    "Free Public Wi-Fi\n"
+    "No Free Wi-Fi Here\n"
+    "Get Your Own Damn Wi-Fi\n"
+    "It Hurts When IP\n"
+    "Dora the Internet Explorer\n"
+    "404 Wi-Fi Unavailable\n"
+    "Porque-Fi\n"
+    "Titanic Syncing\n"
+    "Test Wi-Fi Please Ignore\n"
+    "Drop It Like It's Hotspot\n"
+    "Life in the Fast LAN\n"
+    "The Creep Next Door\n"
+    "Ye Olde Internet\n"
 };
 
 #endif // PALNAGOTCHI_CONFIG_H

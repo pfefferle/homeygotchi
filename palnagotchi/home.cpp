@@ -1,10 +1,10 @@
 #include "home.h"
+#include "config.h"
 
 BTHome bthome;
 
 void initHome() {
     // Initialize BTHome with device name.
-    String device_name = homeygotchi_name;
     bthome.begin(device_name, false, "", false);
 }
 
