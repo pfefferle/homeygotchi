@@ -6,12 +6,11 @@
 class State {
 public:
     // State constants
-    static const uint8_t INIT      = 0;
-    static const uint8_t WAKE      = 1;
-    static const uint8_t SLEEP     = 2;
-    static const uint8_t PWNAGOTCHI_FOUND = 10;
-    static const uint8_t DEAUTH_DETECTED  = 30;
-    static const uint8_t HALT      = 255;
+    static const uint8_t INIT  = 0;
+    static const uint8_t WAKE  = 10;
+    static const uint8_t BORED = 20;
+    static const uint8_t SLEEP = 200;
+    static const uint8_t HALT  = 255;
 
     // State management
     static void set(uint8_t newState);

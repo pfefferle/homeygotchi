@@ -8,7 +8,6 @@
 #include "state.h"
 #include "mood.h"
 #include "pwngrid.h"
-#include "deauth.h"
 
 void initM5() {
     auto cfg = M5.config();
@@ -59,6 +58,10 @@ void loop() {
         case State::WAKE:
             Mood::set(random(2, 13));
             pwngridLoop();
+            break;
+        case State::BORED:
+            Mood::set(random(16, 19));
+            delay(10000);
             break;
         case State::SLEEP:
             Mood::set(random(0, 2));

@@ -1,5 +1,5 @@
 #include "mood.h"
-#include "config.h"
+#include "globals.h"
 
 uint8_t Mood::currentMood = 0;
 String Mood::currentFace = "";
