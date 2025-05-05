@@ -5,6 +5,9 @@
 
 #include <Arduino.h>
 
+// Global variable declaration
+extern unsigned long lastDetection = 0;
+
 // ASCII mood faces
 const String homeygotchi_moods[] = {
     "(v_v)",  // 0 - sleeping

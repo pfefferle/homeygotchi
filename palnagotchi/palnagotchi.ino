@@ -46,8 +46,7 @@ void wakeUp() {
 
 void loop() {
     M5.update();
-    uint32_t current_time = millis();
-
+    
     switch (State::get()) {
         case State::HALT:
             return;
@@ -56,21 +55,28 @@ void loop() {
             State::set(State::WAKE);
             break;
         case State::WAKE:
-            Mood::set(random(2, 13));
-            pwngridLoop();
+            Mood::set(random(7, 14));
             break;
         case State::BORED:
-            Mood::set(random(16, 19));
-            delay(10000);
+            Mood::set(random(15, 16));
+            break;
+        case State::CURIOUS:
+            Mood::set(random(2, 6));
+            pwngridLoop();
+            break;
+        case State::ANGRY:
+            Mood::set(17);
+            break;
+        case State::SAD:
+            Mood::set(18);
             break;
         case State::SLEEP:
-            Mood::set(random(0, 2));
-            delay(10000);
+            Mood::set(0);
             break;
     }
 
-    State::change();
+    delay(10000);
 
+    State::change();
     UI::update(true);
-    delay(1000);
 }
