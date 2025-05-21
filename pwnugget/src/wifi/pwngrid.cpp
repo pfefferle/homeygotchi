@@ -142,7 +142,7 @@ esp_err_t pwngridAdvertise(uint8_t channel, String face) {
     String pal_json_str = "";
 
     pal_json["pal"] = true;  // Also detect other Palnagotchis
-    pal_json["name"] = "Palnagotchi";
+    pal_json["name"] = device_name;
     pal_json["face"] = face;
     pal_json["epoch"] = 1;
     pal_json["grid_version"] = "1.10.3";

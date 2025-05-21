@@ -9,6 +9,7 @@
 #include <esp_wifi_types.h>
 #include "state.h"
 #include "mood.h"
+#include "config.h"
 // #include "freertos/FreeRTOS.h"
 
 // Peer information structure
