@@ -1,9 +1,9 @@
-#ifndef PALNAGOTCHI_HOME_H
-#define PALNAGOTCHI_HOME_H
+#ifndef PWNUGGET_HOME_H
+#define PWNUGGET_HOME_H
 
 #include <Arduino.h>
 #include "src/BTHome/BTHome.h"
-#include "pwngrid.h"
+#include "src/wifi/pwngrid.h"
 #include "mood.h"
 #include "config.h"
 
@@ -14,4 +14,4 @@ extern BTHome bthome;
 void initHome();
 void sendMoodToHome();
 
-#endif // PALNAGOTCHI_HOME_H
+#endif // PWNUGGET_HOME_H

@@ -1,5 +1,5 @@
-#ifndef PALNAGOTCHI_PWNGRID_H
-#define PALNAGOTCHI_PWNGRID_H
+#ifndef PWNUGGET_PWNGRID_H
+#define PWNUGGET_PWNGRID_H
 
 #include <Arduino.h>
 #include <ArduinoJson.h>
@@ -42,4 +42,4 @@ String getPwngridLastFriendName();
 signed int getPwngridClosestRssi();
 void checkPwngridGoneFriends();
 
-#endif // PALNAGOTCHI_PWNGRID_H
+#endif // PWNUGGET_PWNGRID_H

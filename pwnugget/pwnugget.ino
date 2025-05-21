@@ -7,7 +7,7 @@
 #include "home.h"
 #include "state.h"
 #include "mood.h"
-#include "pwngrid.h"
+#include "src/wifi/pwngrid.h"
 
 void initM5() {
     auto cfg = M5.config();
@@ -46,7 +46,7 @@ void wakeUp() {
 
 void loop() {
     M5.update();
-    
+
     switch (State::get()) {
         case State::HALT:
             return;
@@ -71,7 +71,8 @@ void loop() {
             Mood::set(18);
             break;
         case State::SLEEP:
-            Mood::set(0);
+            const char* map[6] = {"zzz", "ZZZ", "ZzzZ", "ZZZZZ!!!", "zzz...", "ratzipüü"};
+            Mood::set(0, "", map[random(0, 6)]);
             break;
     }
 

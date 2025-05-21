@@ -1,5 +1,5 @@
-#ifndef PALNAGOTCHI_MOOD_H
-#define PALNAGOTCHI_MOOD_H
+#ifndef PWNUGGET_MOOD_H
+#define PWNUGGET_MOOD_H
 
 #include <Arduino.h>
 
@@ -21,4 +21,4 @@ private:
     static bool currentBroken;
 };
 
-#endif // PALNAGOTCHI_MOOD_H
+#endif // PWNUGGET_MOOD_H

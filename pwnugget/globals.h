@@ -1,5 +1,5 @@
-#ifndef PALNAGOTCHI_GLOBALS_H
-#define PALNAGOTCHI_GLOBALS_H
+#ifndef PWNUGGET_GLOBALS_H
+#define PWNUGGET_GLOBALS_H
 
 #include "config.h"
 
@@ -184,4 +184,4 @@ const char ssids[] PROGMEM = {
     "Ye Olde Internet\n"
 };
 
-#endif // PALNAGOTCHI_GLOBALS_H
+#endif // PWNUGGET_GLOBALS_H

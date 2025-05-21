@@ -1,5 +1,5 @@
-#ifndef PALNAGOTCHI_DEAUTH_H
-#define PALNAGOTCHI_DEAUTH_H
+#ifndef PWNUGGET_DEAUTH_H
+#define PWNUGGET_DEAUTH_H
 
 #include <Arduino.h>
 #include <esp_wifi.h>
@@ -17,4 +17,4 @@ void deauthSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type);
 void sniffForDeauth();
 void initDeauthSniffer();
 
-#endif // PALNAGOTCHI_DEAUTH_H
+#endif // PWNUGGET_DEAUTH_H

@@ -1,5 +1,5 @@
-#ifndef PALNAGOTCHI_STATE_H
-#define PALNAGOTCHI_STATE_H
+#ifndef PWNUGGET_STATE_H
+#define PWNUGGET_STATE_H
 
 #include <Arduino.h>
 
@@ -20,6 +20,7 @@ public:
     static const uint8_t CURIOUS = 20;
     static const uint8_t ANGRY   = 30;
     static const uint8_t SAD     = 40;
+    static const uint8_t HAPPY   = 50;
     static const uint8_t BORED   = 100;
     static const uint8_t SLEEP   = 200;
     static const uint8_t HALT    = 255;
@@ -39,4 +40,4 @@ private:
     static uint32_t nextSwitch;
 };
 
-#endif // PALNAGOTCHI_STATE_H
+#endif // PWNUGGET_STATE_H

@@ -1,8 +1,8 @@
-#ifndef PALNAGOTCHI_UI_H
-#define PALNAGOTCHI_UI_H
+#ifndef PWNUGGET_UI_H
+#define PWNUGGET_UI_H
 
 #include "mood.h"
-#include "pwngrid.h"
+#include "src/wifi/pwngrid.h"
 
 class UI {
 public:
@@ -31,4 +31,4 @@ private:
     static bool menu_open;
 };
 
-#endif // PALNAGOTCHI_UI_H
+#endif // PWNUGGET_UI_H

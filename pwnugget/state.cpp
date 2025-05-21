@@ -5,7 +5,7 @@ extern unsigned long lastDetection;
 
 // Duration table for each state
 const StateDuration stateDurations[] = {
-    { State::WAKE,    30000, 90000 },
+    { State::WAKE,    5000, 10000 },
     { State::BORED,   20000, 60000 },
     { State::CURIOUS, 30000, 90000 },
     { State::ANGRY,   10000, 30000 },
@@ -59,8 +59,8 @@ void State::change() {
     if (currentTime >= nextSwitch) {
         switch (get()) {
             case State::WAKE: {
-                uint8_t map[3] = {State::CURIOUS, State::WAKE, State::SLEEP};
-                set(map[random(0, 3)]);
+                uint8_t map[5] = {State::CURIOUS, State::WAKE, State::CURIOUS, State::SLEEP, State::CURIOUS};
+                set(map[random(0, 5)]);
                 break;
             }
             case State::SLEEP:
